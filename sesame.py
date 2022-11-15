@@ -13,7 +13,7 @@ import sys
 import socket
 
 begin = 1
-end = 2000
+end = 1024
 
 def talk():
     input=sr.Recognizer()
