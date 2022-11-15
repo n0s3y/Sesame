@@ -1,0 +1,6 @@
+SpeechRecognition
+wikipedia
+playsound
+gtts
+wolframalpha
+python-nmap
