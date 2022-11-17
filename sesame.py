@@ -53,7 +53,7 @@ if __name__=='__main__':
         if "help" in text:
             respond('Useful commands can be found at github.com/n0s3y/sesam')
             
-        if 'map' in text:
+        if 'scan' in text:
             respond('What IP?')
             target = input("Enter target IP: " )
             respond(target)            
@@ -70,7 +70,11 @@ if __name__=='__main__':
                 # in the dictionary
                 res = res['scan'][target]['tcp'][i]['state']
                 respond(f'port {i} is {res}.')
-
+        if 'scanner' in text:
+            respond('What IP?')
+            target = input("Enter target IP: ")
+            respond(target)
+            os.system("")
         if 'ping' in text:
                     respond('What IP?')
                     target = input("Enter target IP: " )
