@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import speech_recognition as sr #convert speech to text
 import datetime #for fetching date and time
 import wikipedia
@@ -70,11 +71,14 @@ if __name__=='__main__':
                 # in the dictionary
                 res = res['scan'][target]['tcp'][i]['state']
                 respond(f'port {i} is {res}.')
-        if 'scanner' in text:
+
+        if 'get' in text:
             respond('What IP?')
             target = input("Enter target IP: ")
             respond(target)
-            os.system("")
+            cmd = './n0s3y.sh'
+            os.system(cmd)
+
         if 'ping' in text:
                     respond('What IP?')
                     target = input("Enter target IP: " )
@@ -92,41 +96,7 @@ if __name__=='__main__':
             respond('Updating system...')
             os.system("sudo apt update")
 
-        if 'scan' in text:
-            respond('what ip do you want to scan?')
-            text = text.replace("search", "")
-            
-            
-        if 'wikipedia' in text:
-            respond('Searching Wikipedia')
-            text =text.replace("wikipedia", "")
-            results = wikipedia.summary(text, sentences=3)
-            respond("According to Wikipedia")
-            print(results)
-            respond(results)
-                  
-        elif 'time' in text:
-            strTime=datetime.datetime.now().strftime("%H:%M:%S")
-            respond(f"the time is {strTime}")     
-        
-        elif 'search'  in text:
-            text = text.replace("search", "")
-            webbrowser.open_new_tab(text)
-            time.sleep(5)
-        
-        elif 'Google' in text:
-            webbrowser.open_new_tab("https://www.google.com")
-            respond("Google is open")
-            time.sleep(5)
-            
-        elif 'youtube' in text: 
-            driver = webdriver.Chrome(r"Mention your webdriver location") 
-            driver.implicitly_wait(1) 
-            driver.maximize_window()
-            respond("Opening in youtube") 
-            indx = text.split().index('youtube') 
-            query = text.split()[indx + 1:] 
-            driver.get("http://www.youtube.com/results?search_query =" + '+'.join(query))              
-                
+
+
         else:
            respond("I do not understand that command.")
